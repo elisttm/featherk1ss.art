@@ -1,0 +1,55 @@
+* {box-sizing: border-box;}
+
+::selection {color: #000; background: #8d9024;}
+
+body {
+    margin: 0; padding: 16px 0; background: lightyellow url("/static/img/bg.png") no-repeat center fixed; background-size: cover;
+    font-family: Verdana, sans-serif; text-align: center; color: #000;
+}
+
+nav {margin: 16px 0 64px;}
+nav > a, .button {display: inline-block; background-color: #715a28; padding: 12px; border-radius: 12px; color: #D8C497; text-decoration: none; vertical-align: middle;}
+
+main {
+    padding: 32px 32px 48px; display: inline-block; width: 1000px; min-height: 600px; background: linear-gradient(to bottom, #bd9e7acc 0%, #bd9e7acc 188px, #463718 188px, #463718 192px, #C1AB6A55 192px, #C1AB6A55 100%);
+    border: 6px solid #000; border-radius: 48px; overflow: hidden;
+}
+
+main, .inner {border-radius: 48px; backdrop-filter: blur(16px);}
+.inner {padding: 32px; background-color: #c2a08e88; border: 4px solid #715a28;}
+.inner p {margin: 16px 0 24px;}
+
+h1, h2, h3 {font-family: 'Times New Roman', serif; margin-top: 24px; margin-bottom: 16px;}
+h1 {font-size: 3em; margin-top: 8px}
+h2 {font-size: 2em}
+h3 {font-size: 1.5em;}
+
+p, ul {margin: 16px 128px 24px;}
+ul {text-align: left;}
+ul ul {margin: 0;}
+li {margin-bottom: 6px; margin-left: 32px;}
+
+a {color: #463718; text-decoration: underline; cursor: url('/static/img/cursor-pointer.gif'), pointer;}
+a:hover {filter: brightness(90%);}
+img {max-height: 100%; max-width: 100%; height: auto}
+
+.column {display: inline-block; vertical-align: top; width: 49%;}
+.row:after {content: ""; display: table; clear: both;}
+
+.socials .button {width: 48px; height: 48px;}
+
+.comms {padding-top: 8px;}
+.comms img {border: 2px solid #715a28;}
+
+.gallery {padding: 32px 8px;}
+.gallery > div {padding: 0px 2px 32px; width: 300px; height: 300px; display: inline-block; overflow: hidden; position: relative;}
+.gallery img {width: auto; height: 85%; max-width: 100%; max-height: 90%; object-fit: contain}
+
+@media screen and (max-width: 1000px) {
+    body {margin: 0; padding: 0}
+    main {width: 100vw; height: 100%; min-height: 100vh; margin: 0; padding: 32px 16px; border: 0px; border-radius: 0px;}
+    .inner {padding: 16px;}
+    ul, li, .inner {margin: 0 0 6px 0;}
+    p {margin: 16px 0}
+    .column {width: 100%;}
+}

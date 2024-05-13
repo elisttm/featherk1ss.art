@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}gallery{% endblock %}
+{% block desc %}a non-comprehensive gallery of my artwork{% endblock %}
+
+{% block content %}
+    
+    <p>this is a (non-comprehensive) gallery of my artwork. most of these are drawn in ms paint, but some were made in ibis paint and others are traditional.</p>
+    <p><b>clicking (most) images will send you to the associated twitter post</b></p>
+    
+    <div class="gallery inner">{{ gallery_html|safe }}</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/static/style.css" type="text/css"/>
+    <link rel="icon" href="/favicon.ico" type='image/x-icon'/>
+	<title>{% block title %}cupid{% endblock %}</title>
+	<meta name="description" content="{% block desc %}commission info and social links for my artworks :3{% endblock %}"/>
+	<meta property="og:title" content="{{ self.title() }}{% if not self.title() %}cupid{% endif %}"/>
+	<meta property="og:description" content="{{ self.desc() }}"/>
+	<meta property="og:site_name" content="featherk1ss.art"/>
+	<meta property="og:type" content="website"/>
+	<meta name="darkreader-lock">
+	<meta name="theme-color" content="#8d9024"/>
+	<meta name="twitter:site" content="@featherk1ss"/>
+</head>
+<body style="background-color:#a5835d;">
+
+<main>
+	<h1>{{ self.title() }}</h1>
+	<nav>
+		<a href="/">home</a>
+		<a href="/commissions">comms</a>
+		<a href="/gallery">gallery</a>
+	</nav>
+
+	{%- block content %}{% endblock %}
+</main>
+
+</body>
+</html>
