@@ -29,7 +29,7 @@ ul {text-align: left;}
 ul ul {margin: 0;}
 li {margin-bottom: 6px; margin-left: 32px;}
 
-a {color: #463718; text-decoration: underline; cursor: url('/static/img/cursor-pointer.gif'), pointer;}
+a {color: #463718; text-decoration: underline;}
 a:hover {filter: brightness(90%);}
 img {max-height: 100%; max-width: 100%; height: auto}
 

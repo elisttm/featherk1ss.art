@@ -31,14 +31,10 @@ async def gallery():
                 continue
     return await render_template('gallery.html', gallery_html=gallery_html)
 
+
 @app.route('/comms')
 async def sona_redirect():
 	return quart.redirect(quart.url_for('commissions'), code=301)
-
-@app.route('/.well-known/discord')
-async def discord_domain():
-    return "dh=c9e082822c3fb25312abd461d1578e68a31d7531"
-    
 
 @app.route('/favicon.ico')
 @app.route('/sitemap.xml')
