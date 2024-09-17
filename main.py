@@ -1,9 +1,9 @@
-import asyncio, quart, hypercorn, json
+import asyncio, quart, hypercorn, json, os
 from quart import render_template
 from datetime import datetime
 
 app = quart.Quart(__name__)
-
+path = os.path.dirname(os.path.realpath(__file__))+'/' # this is stupid
 
 @app.route('/')
 async def index():
@@ -16,10 +16,10 @@ async def commissions():
 @app.route('/gallery')
 async def gallery():
     gallery_html = ""
-    with open('art.json') as f:
-        artfile = json.load(f)
-        for art in reversed(artfile):
+    with open(path+"art.json") as f:
+        for art in reversed(json.load(f)):
             try:
+                # {"date": "", "type": "", "subjects": 0, "filename": "", "link": ""},
                 art_date = datetime.strftime(datetime.strptime(art["date"], "%y-%m-%d"), "%B %d, %Y")
                 art_type = f'{["", "solo ", "duo ", "trio ", "quartet ", "quintet "][art["subjects"]]}{art["type"]}'
                 art_html = f'<img src="static/img/art/{art["filename"]}" alt="{art_type} from {art_date}" width="auto" height="auto"/>'
@@ -33,7 +33,7 @@ async def gallery():
 
 
 @app.route('/comms')
-async def sona_redirect():
+async def comms_redirect():
 	return quart.redirect(quart.url_for('commissions'), code=301)
 
 @app.route('/favicon.ico')
@@ -42,6 +42,15 @@ async def sona_redirect():
 async def static_from_root():
 	return await quart.send_from_directory(app.static_folder, quart.request.path[1:])
 
+@app.errorhandler(404)
+@app.errorhandler(500)
+async def error_handling(error):
+	response = quart.Response(await render_template('error.html', errors={
+		404: ["[404] page not found", "the url youre trying to access does not exist! you likely followed a dead link or typed something wrong"],
+		500: ["[500] internal server error", "somewhere along the way there was an error processing your request. if this keeps happening, please get in contact",],
+	}, error=error,), error.code)
+	response.headers.set("X-Robots-Tag", "noindex")
+	return response
 
 hyperconfig = hypercorn.config.Config()
 hyperconfig.bind = ["0.0.0.0:11032"]

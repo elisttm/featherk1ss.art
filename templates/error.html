@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ errors[error.code][0] }}{% endblock %}
+{% block desc %}{{ errors[error.code][1] }}{% endblock %}
+
+{% block content %}
+
+	<div style="margin: 128px 20%;">
+		<h1>error!</h1>
+        <h3>{{ errors[error.code][1] }}</h3>
+	<div>
+    
+    <br><br><img src="/static/img/ghost.gif" alt="scary ghost"/>
+
+{% endblock %}
