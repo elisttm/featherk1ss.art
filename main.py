@@ -22,7 +22,7 @@ async def gallery():
                 # {"date": "", "type": "", "subjects": 0, "filename": "", "link": ""},
                 art_date = datetime.strftime(datetime.strptime(art["date"], "%y-%m-%d"), "%B %d, %Y")
                 art_type = f'{["", "solo ", "duo ", "trio ", "quartet ", "quintet "][art["subjects"]]}{art["type"]}'
-                art_html = f'<img src="static/img/art/{art["filename"]}" alt="{art_type} from {art_date}" width="auto" height="auto"/>'
+                art_html = f'<img src="static/img/art/{art["filename"]}" alt="{art_type} from {art_date}" width="auto" height="auto" loading="lazy"/>'
                 if art["link"]:
                     art_html = f'<a target="_blank" href="{art["link"]}">{art_html}</a>'
                 gallery_html += f'    <div>{art_html}<div><b>{art_date}</b><br><span style="font-size:0.9em">{art_type}</span></div></div>\n'

@@ -8,15 +8,15 @@ body {
 }
 
 nav {margin: 16px 0 80px;}
-nav > a, .button {display: inline-block; background-color: #715a28; padding: 12px; border-radius: 12px; color: #D8C497; text-decoration: none; vertical-align: middle;}
+nav > a, .button {display: inline-block; background-color: #463718; padding: 12px; border-radius: 12px; color: #D8C497; text-decoration: none; vertical-align: middle;}
 
 main {
-    padding: 32px 32px 48px; display: inline-block; width: 1000px; min-height: 600px; border: 6px solid #000; border-radius: 48px; overflow: hidden;
-    background: linear-gradient(to bottom, #bd9e7acc 0%, #bd9e7acc 188px, #463718 188px, #463718 192px, #C1AB6A55 192px, #C1AB6A55 100%);
+    padding: 32px 32px 48px; display: inline-block; width: 1000px; min-height: 600px; border: 8px solid #000; border-radius: 48px; overflow: hidden;
+    background: linear-gradient(to bottom, #bd9e7acc 0%, #bd9e7acc 188px, #463718 180px, #463718 195px, #C1AB6A55 192px, #C1AB6A55 100%);
 }
 
 main, .inner {border-radius: 48px;}
-.inner {padding: 32px; background-color: #c2a08e88; border: 4px solid #715a28;}
+.inner {padding: 32px; background-color: #c2a08e88; border: 4px solid #463718;}
 .inner p {margin: 16px 0 24px;}
 
 h1, h2, h3 {font-family: 'Times New Roman', serif; margin-top: 24px; margin-bottom: 16px;}
