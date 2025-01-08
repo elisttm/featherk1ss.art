@@ -8,6 +8,15 @@
     <p>this is a non-comprehensive gallery of my artwork. most of my art is in ms paint but any exceptions will be cited.</p>
     <p><b>clickable images will send you to their associated posts!</b></p>
     
-    <div class="gallery inner">{{ gallery_html|safe }}</div>
+    <div class="gallery inner">
+        {% for art in art_list %}
+            <div>
+                {%- if art["link"] %}<a target="_blank" href="{{ art["link"] }}">{% endif %}
+                <img src="static/img/art/{{ art["filename"] }}" alt="" width="auto" height="auto" loading="lazy"/>
+                {%- if art["link"] %}</a>{%- endif %}
+                <div><b>{{ ff.get_date(art) }}</b><br><span>{{ ff.get_type(art) }}</span></div>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

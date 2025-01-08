@@ -5,36 +5,32 @@ from datetime import datetime
 app = quart.Quart(__name__)
 path = os.path.dirname(os.path.realpath(__file__))+'/' # this is stupid
 
+class ff:
+
+    def get_date(art):
+        return datetime.strftime(datetime.strptime(art["date"], "%y-%m-%d"), "%B %d, %Y")
+    
+    def get_type(art):
+        return ["", "solo ", "duo ", "trio ", "quartet ", "quintet "][art["subjects"]] + art["type"]
+
+
 @app.route('/')
-async def index():
+async def _index():
     return await render_template('index.html')
 
 @app.route('/commissions')
-async def commissions():
+async def _commissions():
     return await render_template('commissions.html')
 
 @app.route('/gallery')
-async def gallery():
-    gallery_html = ""
+async def _gallery():
     with open(path+"art.json") as f:
-        for art in reversed(json.load(f)):
-            try:
-                # {"date": "", "type": "", "subjects": 0, "filename": "", "link": ""},
-                art_date = datetime.strftime(datetime.strptime(art["date"], "%y-%m-%d"), "%B %d, %Y")
-                art_type = f'{["", "solo ", "duo ", "trio ", "quartet ", "quintet "][art["subjects"]]}{art["type"]}'
-                art_html = f'<img src="static/img/art/{art["filename"]}" alt="{art_type} from {art_date}" width="auto" height="auto" loading="lazy"/>'
-                if art["link"]:
-                    art_html = f'<a target="_blank" href="{art["link"]}">{art_html}</a>'
-                gallery_html += f'    <div>{art_html}<div><b>{art_date}</b><br><span style="font-size:0.9em">{art_type}</span></div></div>\n'
-            except Exception as e:
-                print(e)
-                continue
-    return await render_template('gallery.html', gallery_html=gallery_html)
-
+        art_list = json.load(f)
+    return await render_template('gallery.html', ff=ff, art_list=art_list)
 
 @app.route('/comms')
-async def comms_redirect():
-	return quart.redirect(quart.url_for('commissions'), code=301)
+async def redirect_comms():
+	return quart.redirect(quart.url_for('_commissions'), code=301)
 
 @app.route('/favicon.ico')
 @app.route('/sitemap.xml')
