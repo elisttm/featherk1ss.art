@@ -2,3 +2,4 @@ TODO
 *.sh
 **nsfw**
 .notes
+.env
