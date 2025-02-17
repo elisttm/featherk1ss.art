@@ -11,7 +11,7 @@ class ff:
         return datetime.strftime(datetime.strptime(art["date"], "%y-%m-%d"), "%B %d, %Y")
     
     def get_type(art):
-        return ["", "solo ", "duo ", "trio ", "quartet ", "quintet "][art["subjects"]] + art["type"]
+        return ["", "solo ", "duo ", "trio "][art["subjects"]] + art["type"]
 
 
 @app.route('/')
@@ -27,6 +27,10 @@ async def _gallery():
     with open(path+"art.json") as f:
         art_list = json.load(f)
     return await render_template('gallery.html', ff=ff, art_list=art_list)
+
+@app.route('/cupid')
+async def _cupid():
+	return await render_template('cupid.html')
 
 @app.route('/comms')
 async def redirect_comms():

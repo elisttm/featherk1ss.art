@@ -2,21 +2,20 @@
 
 ::selection {color: #000; background: #8d9024;}
 
+html, body, .main {min-height: 100vh; margin: 0; padding: 0}
+
 body {
-    margin: 0; padding: 16px 0; font-family: Verdana, sans-serif; text-align: center; color: #000;
     background: #a5835d url("/static/img/bg.png") no-repeat center fixed; background-size: cover; backdrop-filter: blur(4px);
+    font-family: Verdana, sans-serif; text-align: center; color: #000; line-height: 1.25;
 }
-
-nav {margin: 16px 0 80px;}
-nav > a, .button {display: inline-block; background-color: #463718; padding: 12px; border-radius: 12px; color: #D8C497; text-decoration: none; vertical-align: middle;}
-
-main {
-    padding: 32px 32px 48px; display: inline-block; width: 1000px; min-height: 600px; border: 2px solid #000; border-radius: 48px; overflow: hidden;
-    background: linear-gradient(to bottom, #bd9e7acc 0%, #bd9e7acc 190px, #C1AB6A55 190px, #C1AB6A55 100%);
+.main {
+    background-color: #C1AB6A55; width: 1000px; margin: 0 auto; overflow: hidden;
+    border-left: 4px solid #000; border-right: 4px solid #000;
 }
+.top {background-color: #bd9e7acc; border-bottom: 4px solid #000; padding: 16px 0 32px; margin-bottom: 32px;}
+nav > a, .button {display: inline-block; background-color: #463718; padding: 12px; color: #D8C497; text-decoration: none; vertical-align: middle;}
 
-main, .inner {border-radius: 48px;}
-.inner {padding: 32px; background-color: #c2a08e88; border: 2px solid #463718;}
+.inner {background-color: #c2a08e88; padding: 32px; margin: 32px; border: 1px solid #000;}
 .inner p {margin: 16px 0 24px;}
 
 h1, h2, h3 {font-family: 'Times New Roman', serif; margin-top: 24px; margin-bottom: 16px;}
@@ -25,9 +24,10 @@ h2 {font-size: 2em}
 h3 {font-size: 1.5em;}
 
 p, ul {margin: 16px 128px 24px;}
+p br {display: block; margin-top: 8px; content: ""}
 ul {text-align: left;}
 ul ul {margin: 0;}
-li {margin-bottom: 6px; margin-left: 32px;}
+li {margin: 8px 0 8px 32px;}
 
 a {color: #463718; text-decoration: underline;}
 a:hover {filter: brightness(90%);}
@@ -36,9 +36,10 @@ img {max-height: 100%; max-width: 100%; height: auto}
 .column {display: inline-block; vertical-align: top; width: 49%;}
 .row:after {content: ""; display: table; clear: both;}
 
+.socials {margin-bottom: 64px}
 .socials .button {width: 48px; height: 48px;}
 
-.comms img, .gallery img {border: 2px solid #000; background-color: #000;}
+.comms img, .gallery img, .ref img {border: 2px solid #000; background-color: #000;}
 
 .gallery {padding: 32px 16px;}
 .gallery > div {padding: 16px 4px; height: 300px; display: inline-block; overflow: hidden; position: relative;}
@@ -46,10 +47,8 @@ img {max-height: 100%; max-width: 100%; height: auto}
 .gallery span {font-size:0.9em}
 
 @media screen and (max-width: 1000px) {
-    body {margin: 0; padding: 0}
-    main {width: 100vw; height: 100%; min-height: 100vh; margin: 0; padding: 32px 16px; border: 0px; border-radius: 0px;}
-    .inner {padding: 16px;}
-    ul, li, .inner {margin: 0 0 6px 0;}
-    p {margin: 16px 0}
+    .main, .top {width: 100vw}
+    .main {border: 0px;}
+    h1, h2, h3, p, ul, li, .inner {margin-left: 8px; margin-right: 8px;}
     .column {width: 100%;}
 }
