@@ -33,6 +33,7 @@ async def _cupid():
 	return await render_template('cupid.html')
 
 @app.route('/comms')
+@app.route('/tos')
 async def redirect_comms():
 	return quart.redirect(quart.url_for('_commissions'), code=301)
 

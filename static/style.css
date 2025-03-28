@@ -12,7 +12,7 @@ body {
     background-color: #C1AB6A55; width: 1000px; margin: 0 auto; overflow: hidden;
     border-left: 4px solid #000; border-right: 4px solid #000;
 }
-.top {background-color: #bd9e7acc; border-bottom: 4px solid #000; padding: 16px 0 32px; margin-bottom: 32px;}
+.top {background-color: #bd9e7acc; border-bottom: 4px solid #000; padding: 24px 0 32px; margin-bottom: 32px;}
 nav > a, .button {display: inline-block; background-color: #463718; padding: 12px; color: #D8C497; text-decoration: none; vertical-align: middle;}
 
 .inner {background-color: #c2a08e88; padding: 32px; margin: 32px; border: 1px solid #000;}
@@ -24,10 +24,10 @@ h2 {font-size: 2em}
 h3 {font-size: 1.5em;}
 
 p, ul {margin: 16px 128px 24px;}
-p br {display: block; margin-top: 8px; content: ""}
+p br {display: block; margin-top: 4px; content: ""}
 ul {text-align: left;}
 ul ul {margin: 0;}
-li {margin: 8px 0 8px 32px;}
+li {margin: 4px 0 4px 32px;}
 
 a {color: #463718; text-decoration: underline;}
 a:hover {filter: brightness(90%);}
@@ -39,7 +39,7 @@ img {max-height: 100%; max-width: 100%; height: auto}
 .socials {margin-bottom: 64px}
 .socials .button {width: 48px; height: 48px;}
 
-.comms img, .gallery img, .ref img {border: 2px solid #000; background-color: #000;}
+.gallery img, .ref img {border: 2px solid #000; background-color: #000;}
 
 .gallery {padding: 32px 16px;}
 .gallery > div {padding: 16px 4px; height: 300px; display: inline-block; overflow: hidden; position: relative;}
